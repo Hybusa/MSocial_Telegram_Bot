@@ -1,4 +1,4 @@
-package com.github.hybusa.TestTaskMSocial;
+package com.github.hybusa.taskMSocial;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
