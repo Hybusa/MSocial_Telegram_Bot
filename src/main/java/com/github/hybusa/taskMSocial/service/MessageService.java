@@ -6,12 +6,14 @@ import com.github.hybusa.taskMSocial.repository.MessageRepository;
 import com.github.hybusa.taskMSocial.repository.UserRepository;
 import lombok.AllArgsConstructor;
 
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import java.util.Optional;
 
 @Service
 @AllArgsConstructor
+@Slf4j
 public class MessageService {
     private final MessageRepository messageRepository;
     private final UserRepository userRepository;
@@ -26,6 +28,7 @@ public class MessageService {
 
         message.setUser(userOptional.get());
         messageRepository.save(message);
+        log.info("outgoing message saved");
     }
 
     public void createReceiveMessage(String receivedMessage, long userChatId){
@@ -39,5 +42,6 @@ public class MessageService {
         message.setFromUser(receivedMessage);
 
         messageRepository.save(message);
-    };
+        log.info("incoming message saved");
+    }
 }

@@ -4,10 +4,10 @@ package com.github.hybusa.taskMSocial.scheduler;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.hybusa.taskMSocial.dto.DailyDomainDto;
-import com.github.hybusa.taskMSocial.entity.DailyDomain;
 import com.github.hybusa.taskMSocial.service.DailyDomainService;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
+
 import java.io.IOException;
 import java.net.URL;
 import java.util.List;
@@ -18,7 +18,9 @@ public class DailyDomainScheduler {
     private static String backorderUrl;
     private static DailyDomainService dailyDomainService;
 
-    public DailyDomainScheduler(ObjectMapper objectMapper, @Value("${backorder.url}")String backorderUrl, DailyDomainService dailyDomainService) {
+    public DailyDomainScheduler(ObjectMapper objectMapper,
+                                @Value("${backorder.url}")String backorderUrl,
+                                DailyDomainService dailyDomainService) {
         DailyDomainScheduler.objectMapper = objectMapper;
         DailyDomainScheduler.backorderUrl = backorderUrl;
         DailyDomainScheduler.dailyDomainService = dailyDomainService;

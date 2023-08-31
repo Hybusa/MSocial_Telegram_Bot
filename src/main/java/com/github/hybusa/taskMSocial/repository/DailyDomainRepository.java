@@ -7,7 +7,7 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface DailyDomainRepository extends JpaRepository<DailyDomain, Long> {
-    @Query(value = "COUNT * FROM daily_domains", nativeQuery = true)
+    @Query(value = "SELECT COUNT (*) FROM daily_domains", nativeQuery = true)
     int countAll();
 }
 
