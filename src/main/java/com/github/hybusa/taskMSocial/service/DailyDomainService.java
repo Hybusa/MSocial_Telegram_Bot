@@ -6,6 +6,7 @@ import com.github.hybusa.taskMSocial.repository.DailyDomainRepository;
 import lombok.AllArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -17,6 +18,7 @@ public class DailyDomainService {
     private final DailyDomainRepository dailyDomainRepository;
     private final DailyDomainMapper dailyDomainMapper;
 
+    @Transactional
     public int updateAndCount(List<DailyDomainDto> dailyDomainDtoList){
         dailyDomainRepository.deleteAll();
         for (DailyDomainDto dailyDomainDto : dailyDomainDtoList) {
